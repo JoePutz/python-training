@@ -51,4 +51,3 @@ name_to_burgers["Neel"]
 list_of_dictionaries = [{"a": 1}, {"b": 2}]
 
 strings_to_lists = {"Jack": [1, 2, 3]}
-
