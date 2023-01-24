@@ -123,3 +123,49 @@ class Person():
 
 myperson = Person('joe', 33)
 myperson.greet
+
+#if we want to make a class that is based on another class.
+#the higher one is called the parent class, the one based on it is the child class
+
+class MyParentClass():
+    def __init__(self, arg, arg2):
+        self.arg = arg
+        print('You just initialized an instance of MyParentClass')
+        print(f'arg: {arg}')
+    
+    def myparentmethod(self):
+        print('Parent method ran')
+
+class myChildClass(MyParentClass):
+    def __init__(self, arg, arg2, child_arg):
+        super().__initial__(arg, arg2)
+        self.child_arg = child_arg
+        print('You just initialized an instance of MyChildClass')
+        print(f'arg: {arg}, child_arg: {child_arg}')
+    
+    def mychildmethod(self):
+        print('Child method ran!')
+
+#Notice how arg and arg2 are both from the init for the original class
+
+mychild1 = myChildClass('value1', 'value0', 'value 2')
+#You just inialized an instance fo MYParentClass
+#Arg: value1
+#You just initialized an isntance of MyChildClass
+#arg: value1, child_arg: value2
+mychild1.mychildmethod()
+#Child method ran!
+mychild1.myparentmethod()
+#Parent method ran!
+
+class Student(Person):
+    def __init__(self, name, age, year):
+        super().__init__(name, age)
+        self.year = year
+
+    def print_year(self):
+        print(f'Year: {self.year}')
+
+student1 = Student('joe', '33', 'freshman')
+student1.greet()
+student1.print_year()
